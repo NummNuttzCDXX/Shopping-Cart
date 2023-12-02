@@ -3,8 +3,12 @@
   font-weight: 400;
   font-size: clamp(16px, 2.5vmin, 40px);
 
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Color Scheme */
+  --main: aliceblue;
+  --secondary: rgb(133, 200, 222);
+
+  background-color: var(--main);
+  color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

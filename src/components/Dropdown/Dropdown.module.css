@@ -1,0 +1,42 @@
+.dropdown {
+	position: relative;
+}
+
+/* Title */
+.dropdown > :first-child {
+	cursor: pointer;
+}
+
+.dropdownContent {
+	transform: scaleY(0);
+	transition: transform .15s linear;
+	transform-origin: top;
+
+	position: absolute;
+	top: 100%;
+	left: -1rem; /* To account for the padding offset */
+	text-align: center;
+	font-size: .9em;
+
+	padding: .5rem 0;
+	background-color: var(--secondary);
+	border-radius: .5rem;
+}
+
+.dropdownContent ul {
+	list-style: none;
+	padding: 0;
+}
+
+.dropdownContent li {
+	padding: .3rem 1rem;
+	cursor: pointer;
+}
+.dropdownContent li:hover {
+	background-color: rgb(71, 161, 190);
+}
+
+.dropdown:hover .dropdownContent {
+	transform: scaleY(1);
+	box-shadow: 4px 8px 8px 0px rgba(0, 0, 0, .45);
+}
