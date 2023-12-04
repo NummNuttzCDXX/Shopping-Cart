@@ -6,6 +6,7 @@
   /* Color Scheme */
   --main: aliceblue;
   --secondary: rgb(133, 200, 222);
+  --text-hover: #125cc5;
 
   background-color: var(--main);
   color: #242424;
