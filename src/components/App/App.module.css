@@ -3,3 +3,8 @@ main {
 	height: 100%;
 	padding: 0 1rem;
 }
+
+.content {
+	display: flex;
+	flex-direction: row;
+}

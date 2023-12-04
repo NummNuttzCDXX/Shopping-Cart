@@ -2,8 +2,10 @@ import styles from './App.module.css';
 import Head from '../Head/Head';
 import {Outlet} from 'react-router-dom';
 import {useEffect, useState} from 'react';
+import Sidebar from '../Sidebar/Sidebar';
 
 function App() {
+	const [sidebar, setSidebar] = useState(false);
 	const [categories, setCategories] = useState(null);
 
 	// Get categories
@@ -39,9 +41,12 @@ function App() {
 		<>
 			<Head categories={categories} />
 
-			<main >
-				<Outlet />
-			</main>
+			<div className={styles.content} >
+				{ sidebar && categories && <Sidebar categories={categories} /> }
+				<main >
+					<Outlet context={[setSidebar]} />
+				</main>
+			</div>
 		</>
 	);
 }
