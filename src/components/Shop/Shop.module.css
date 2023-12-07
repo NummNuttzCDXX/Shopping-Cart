@@ -11,6 +11,10 @@
 	padding: .5rem;
 
 	background-color: white;
+
+	display: grid;
+	grid-template-rows: 275px;
+	gap: .8rem;
 }
 
 .card img {
@@ -20,22 +24,72 @@
 	object-position: center;
 	object-fit: contain;
 	background-color: white;
+	align-self: center;
+}
+
+.card h3, .card p {
+	margin: 0;
 }
 
 .card h3 {
 	font-size: 1em;
 }
+.card h3:hover {
+	text-decoration: underline;
+}
 
 .card a {
 	color: inherit;
 }
-.card a:hover {
+
+/* Description `p` tag */
+.desc {
+	/* Fixed 3 lines high */
+	height: calc(2.5ex * 3);
+	line-height: 2.5ex;
+
+	position: relative;
+	font-size: .9em;
+	overflow: hidden;
+}
+
+/* Description text content */
+.desc span {
+	width: auto;
+	display: inline-block;
+}
+.desc span:hover, .overflowBtn:hover {
 	text-decoration: underline;
 	color: var(--text-hover);
 }
 
-/* Description `p` tag */
-.desc {
-	position: relative;
+.overflowBtn {
+	font-size: .83em;
+	color: var(--text-hover);
+}
+
+.priceContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.starContainer, .starWrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.starContainer span {
 	font-size: .9em;
+}
+
+.card .star {
+	width: 1.5rem;
+}
+
+.totalRates {
+	font-size: .8em;
 }
