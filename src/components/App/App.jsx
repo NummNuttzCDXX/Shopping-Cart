@@ -6,10 +6,16 @@ import Sidebar from '../Sidebar/Sidebar';
 import starEmpty from '../../assets/img/star-empty.svg';
 import star from '../../assets/img/star-filled.svg';
 import starHalf from '../../assets/img/star-half.svg';
+import YouMayLike from '../MayAlsoLike/MayAlsoLike';
 
 function App() {
 	const [sidebar, setSidebar] = useState(false);
 	const [categories, setCategories] = useState(null);
+	const [showSideCategories, setShowSideCategories] = useState(true);
+
+	/* Product data to give to `<YouMayLike/>`
+	to fetch products in same category */
+	const [youMayLikeData, setYouMayLikeData] = useState(null);
 
 	// Get categories
 	useEffect(() => {
@@ -72,9 +78,20 @@ function App() {
 			<Head categories={categories} />
 
 			<div className={styles.content} >
-				{ sidebar && categories && <Sidebar categories={categories} /> }
+				{ sidebar && categories && (
+					<Sidebar categories={showSideCategories ? categories : null} >
+						{!showSideCategories && <YouMayLike data={youMayLikeData} />}
+					</Sidebar>
+				)}
 				<main >
-					<Outlet context={[setSidebar, getStarSrc]} />
+					<Outlet
+						context={[
+							setSidebar,
+							getStarSrc,
+							setShowSideCategories,
+							setYouMayLikeData,
+						]}
+					/>
 				</main>
 			</div>
 		</>

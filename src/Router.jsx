@@ -2,6 +2,7 @@ import {RouterProvider, createBrowserRouter} from 'react-router-dom';
 import Shop from './components/Shop/Shop';
 import App from './components/App/App';
 import {useState} from 'react';
+import Product from './components/Product/Product';
 
 const Router = () => {
 	const [productData, setProductData] = useState(null);
@@ -31,6 +32,11 @@ const Router = () => {
 					path: '/shop',
 					element: <Shop />,
 					loader: getAllProducts,
+				},
+				{
+					path: '/shop/product/:prodId',
+					element: <Product />,
+					loader: async ({params}) => await fetch(`https://fakestoreapi.com/products/${params.prodId}`, {mode: 'cors', method: 'GET'}),
 				},
 			],
 		},

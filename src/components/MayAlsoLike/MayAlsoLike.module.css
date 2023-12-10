@@ -1,0 +1,100 @@
+/* Main container */
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* Main Slideshow Container */
+.slideshowWrapper {
+	--width: 100%;
+	width: 100%;
+	min-height: 275px;
+
+	position: relative;
+	overflow: hidden;
+}
+
+/* Container holding all images */
+.slideshowContainer {
+	width: 100%;
+		
+	display: grid;
+	grid-template-columns: repeat(auto-fill, var(--width));
+	grid-auto-flow: column;
+	gap: 10px;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	transition: .65s ease-in-out;
+}
+
+.card {
+	width: var(--width);
+	height: 100%;
+}
+
+.card img {
+	width: 100%;
+	max-height: 200px;
+	object-fit: contain;
+	background-color: white;
+}
+
+.card p {
+	/* Truncate title text */
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+
+	text-align: center;
+	font-weight: 700;
+}
+
+.card a {
+	color: inherit;
+}
+
+.card p:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.arrowContainer {
+	border-radius: .5rem;
+	background-color: rgba(0, 0, 0, 0.555);
+	position: absolute;
+	bottom: 50%;
+
+	display: flex;
+	place-content: center;
+
+	cursor: pointer;
+	transition-duration: .3s;
+}
+
+.arrowContainer:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.arrowContainer.left, .arrowContainer.right {
+	rotate: none;
+	filter: none;
+}
+
+/* Arrows */
+.right, .left {
+	width: 2rem;
+	filter: invert(88%) sepia(2%) saturate(2643%) hue-rotate(194deg) brightness(110%) contrast(101%);
+}
+
+.left {
+	rotate: 180deg;
+	left: 0;
+}
+
+.right {
+	right: 0;
+}
