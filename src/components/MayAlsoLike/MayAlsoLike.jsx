@@ -58,6 +58,7 @@ const YouMayLike = ({data}) => {
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [container.current, wrapper.current, productData]);
 
+	const [highlightedDot, setHighlightedDot] = useState(0);
 	function changeSlide(forward = true) {
 		const width = wrapper.current.clientWidth;
 		setContainerStyles((prev) => {
@@ -67,18 +68,39 @@ const YouMayLike = ({data}) => {
 			// Reset slideshow once its at the end
 			if (current <= width * (productData.length - 1) * -1 && forward) {
 				// Go to first image
-				newLeft = '0px';
+				newLeft = 0;
+				setHighlightedDot(0); // Set highlighted dot
 			} else if (current >= 0 && !forward) {
 				// Go to last image
-				newLeft = (width + 10) * (productData.length - 1) * -1 + 'px';
+				newLeft = (width + 10) * (productData.length - 1) * -1;
+				setHighlightedDot(productData.length - 1); // Set highlighted dot
 			} else {
 				// Go to next image
-				newLeft = forward ? current - width - 10 + 'px' :
-					current + width + 10 + 'px';
+				newLeft = forward ? current - width - 10 :
+					current + width + 10;
+
+				// Set highlighted dot
+				setHighlightedDot(Math.floor(Math.abs(newLeft / (width - 10))));
 			}
 
-			return {...prev, left: newLeft};
+			return {...prev, left: newLeft + 'px'};
 		});
+	}
+
+	/**
+	 * Go to specific slide at `index`
+	 *
+	 * @param {Number} index Number slide to go to
+	 * @param {number} [offset=10]
+	 */
+	function goToSlide(index, offset = 10) {
+		const width = wrapper.current.clientWidth;
+		setContainerStyles((prev) => {
+			return {...prev, left: (width + offset) * index * -1 + 'px'};
+		});
+
+		// Set highlighted dot
+		setHighlightedDot(index);
 	}
 
 	return (
@@ -103,6 +125,18 @@ const YouMayLike = ({data}) => {
 							</div>
 						);
 					})}
+				</div>
+
+				{/* Map through productData to place a dot for each image */}
+				<div className={styles.dotContainer} >
+					{ productData.map((d, i) => (
+						<div
+							className={
+								`${styles.dot} ${i == highlightedDot ? styles.highlight : ''}`
+							}
+							key={i + 'c'}
+							onClick={() => goToSlide(i)} />
+					))}
 				</div>
 
 				{/* Arrows */}
