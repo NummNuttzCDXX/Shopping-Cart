@@ -1,0 +1,18 @@
+.errorPage {
+	width: 100vw;
+	height: 100vh;
+	font-size: 1.2em;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.goBack {
+	cursor: pointer;
+}
+.goBack:hover {
+	color: rgb(180, 10, 10);
+	text-decoration: underline;
+}

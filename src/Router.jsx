@@ -3,6 +3,7 @@ import Shop from './components/Shop/Shop';
 import App from './components/App/App';
 import {useState} from 'react';
 import Product from './components/Product/Product';
+import ErrorPage from './components/Error/Error';
 
 const Router = () => {
 	const [productData, setProductData] = useState(null);
@@ -39,6 +40,7 @@ const Router = () => {
 					loader: async ({params}) => await fetch(`https://fakestoreapi.com/products/${params.prodId}`, {mode: 'cors', method: 'GET'}),
 				},
 			],
+			ErrorBoundary: ErrorPage,
 		},
 	]);
 
