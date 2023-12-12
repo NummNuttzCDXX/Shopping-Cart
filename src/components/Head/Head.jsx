@@ -15,12 +15,15 @@ const Head = ({categories}) => {
 				<h1>Loremazon</h1>
 				<input type="search" placeholder='Search' />
 
-				<div className={styles.checkoutContainer} >
-					<img src={src} alt='Shopping Cart'
-						onMouseEnter={() => setSrc(shopCartCheckout)}
-						onMouseLeave={() => setSrc(shopCart)}
-					/>
-					<span>Checkout</span>
+				{/* Change image src on container hover */}
+				<div className={styles.checkoutContainer}
+					onMouseLeave={() => setSrc(shopCart)}
+					onMouseEnter={() => setSrc(shopCartCheckout)}
+				>
+					<Link to={'/checkout'}>
+						<img src={src} alt='Shopping Cart' />
+						<span>Checkout</span>
+					</Link>
 				</div>
 			</div>
 

@@ -1,0 +1,121 @@
+.cartContainer {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Items Container */
+.items ul {
+	padding: 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1.5rem;
+	
+	list-style: none;
+}
+
+/* List Item */
+.item {
+	width: 60%;
+	padding: .5rem;
+	background-color: var(--secondary);
+	border-radius: .5rem;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1rem;
+
+	position: relative;
+}
+
+.item img {
+	height: 20vh;
+	min-height: 15vh;
+}
+
+.item select,
+.item input[type=number] {
+	width: 3.5em;
+	font-size: .8rem;
+}
+
+.title {
+	flex: 1;
+
+	text-align: center;
+	text-overflow: ellipsis;
+	text-wrap: nowrap;
+	overflow: hidden;
+}
+
+/* Always show Up/Down arrows on number input */
+.item input[type=number]::-webkit-inner-spin-button,
+.item input[type=number]::-webkit-outer-spin-button {
+	opacity: 1;
+}
+
+.subtotal {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	position: absolute;
+	bottom: .5rem;
+	right: .5rem;
+
+	opacity: .85;
+	transition-duration: .3s;
+}
+.subtotal:hover {
+	opacity: 1;
+}
+
+/* Main Subtotal */
+.subtotal:nth-child(2) {
+	width: 60%;
+
+	align-self: center;
+	align-items: end;
+
+	position: relative;
+	opacity: 1;
+}
+
+.subtotal .head {
+	text-decoration: underline;
+}
+
+.checkoutBtn {
+	padding: .5rem 1rem;
+	font-size: 1em;
+	background-color: var(--secondary);
+	border: 3px solid var(--accent);
+	border-radius: .5rem;
+
+	align-self: flex-start;
+
+	/* Move up one space so btn is in line with other text */
+	position: relative;
+	bottom: 2rem;
+}
+.checkoutBtn:hover {
+	background-color: rgb(93, 165, 188);
+	cursor: pointer;
+}
+.checkoutBtn:active {
+	outline: auto;
+}
+
+.cartContainer p {
+	text-align: center;
+}
+
+.cartContainer p a {
+	color: inherit;
+}
+.cartContainer p a:hover {
+	text-decoration: underline;
+}

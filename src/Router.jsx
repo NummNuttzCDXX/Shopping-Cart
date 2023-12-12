@@ -4,6 +4,7 @@ import App from './components/App/App';
 import {useState} from 'react';
 import Product from './components/Product/Product';
 import ErrorPage from './components/Error/Error';
+import Checkout from './components/Checkout/Checkout';
 
 const Router = () => {
 	const [productData, setProductData] = useState(null);
@@ -38,6 +39,10 @@ const Router = () => {
 					path: '/shop/product/:prodId',
 					element: <Product />,
 					loader: async ({params}) => await fetch(`https://fakestoreapi.com/products/${params.prodId}`, {mode: 'cors', method: 'GET'}),
+				},
+				{
+					path: '/checkout',
+					element: <Checkout />,
 				},
 			],
 			ErrorBoundary: ErrorPage,
