@@ -76,7 +76,7 @@ function App() {
 
 	return (
 		<>
-			<Head categories={categories} />
+			<Head categories={categories} cart={cart} />
 
 			<div className={styles.content} >
 				{ sidebar && categories && (

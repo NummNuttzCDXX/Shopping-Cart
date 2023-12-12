@@ -4,10 +4,20 @@ import shopCart from '../../assets/img/shopping-cart.svg';
 import shopCartCheckout from '../../assets/img/shopping-cart-checkout.svg';
 import styles from './Head.module.css';
 import {Link} from 'react-router-dom';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
-const Head = ({categories}) => {
+const Head = ({categories, cart}) => {
 	const [src, setSrc] = useState(shopCart);
+	const [cartLength, setCartLength] = useState(0);
+
+	useEffect(() => {
+		let total = 0; // Reset total
+		// For each item in cart - Add the quantity
+		cart.forEach((item) => total += Number(item.quantity));
+
+		// Set length to total
+		setCartLength(total);
+	}, [cart]);
 
 	return (
 		<header>
@@ -24,6 +34,12 @@ const Head = ({categories}) => {
 						<img src={src} alt='Shopping Cart' />
 						<span>Checkout</span>
 					</Link>
+
+					{ cartLength > 0 &&
+						<span className={styles.count}>
+							{cartLength}
+						</span>
+					}
 				</div>
 			</div>
 
@@ -48,6 +64,7 @@ const Head = ({categories}) => {
 
 Head.propTypes = {
 	categories: propTypes.arrayOf(propTypes.string),
+	cart: propTypes.arrayOf(propTypes.object),
 };
 
 export default Head;

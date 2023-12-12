@@ -8,11 +8,16 @@ header {
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+
+	position: sticky;
+	top: 0;
+	z-index: 2;
+	box-shadow: 4px 1px 6px 2px rgba(0, 0, 0, .5);
 }
 
 .head {
 	width: 100%;
-	margin-top: 1.8rem;
+	margin-top: 1rem;
 
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -32,6 +37,8 @@ header {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+
+	position: relative;
 }
 
 .checkoutContainer a {
@@ -59,6 +66,7 @@ header {
 
 .linkContainer {
 	list-style: none;
+	margin-top: .0em;
 	padding: 0;
 
 	display: flex;
@@ -71,4 +79,26 @@ header {
 
 .linkContainer a {
 	color: inherit;
+}
+
+.count {
+	width: 1.3em;
+	height: 1.3em;
+
+	text-align: center;
+	font-size: 1.25rem;
+
+	color: var(--main);
+	background-color: rgb(221, 1, 1);
+	border: 2px solid rgb(221, 1, 1);
+	border-radius: 100%;
+	box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, .8);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	top: calc((-1.2em / 2) + 5px);
+	left: calc(-1.2em / 2);
 }
