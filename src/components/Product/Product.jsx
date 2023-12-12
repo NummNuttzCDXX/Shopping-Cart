@@ -39,7 +39,7 @@ const Product = () => {
 			<h2> {data.title} </h2>
 			<div className={styles.priceContainer} >
 				<span> ${data.price} </span>
-				<AddToCartBtn />
+				<AddToCartBtn itemData={data} />
 			</div>
 
 			<p className={styles.desc} > {data.description} </p>

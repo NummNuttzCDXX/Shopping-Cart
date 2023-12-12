@@ -67,7 +67,7 @@ const Card = ({data, getStars}) => {
 
 			<div className={styles.priceContainer} >
 				<span> ${data.price} </span>
-				<AddToCartBtn />
+				<AddToCartBtn itemData={data} />
 			</div>
 
 			{/* Rating container */}

@@ -1,0 +1,33 @@
+.addCartContainer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: .5rem;
+}
+
+/* Number input */
+.addCartContainer input {
+	width: 3.5em;
+	font-size: .8rem;
+	border-style: solid;
+}
+/* Always show Up/Down arrows on number input */
+.addCartContainer input[type=number]::-webkit-inner-spin-button,
+.addCartContainer input[type=number]::-webkit-outer-spin-button {
+	opacity: 1;
+}
+
+/* Actual button */
+.addCartBtn {
+	padding: .2rem .5rem;
+	font-size: .9rem;
+
+	background-color: var(--secondary);
+	border: 3px solid var(--accent);
+	border-radius: .5rem;
+	box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, .5);
+}
+.addCartBtn:hover {
+	background-color: rgb(93, 165, 188);
+	cursor: pointer;
+}

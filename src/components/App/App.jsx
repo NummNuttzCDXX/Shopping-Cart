@@ -12,6 +12,7 @@ function App() {
 	const [sidebar, setSidebar] = useState(false);
 	const [categories, setCategories] = useState(null);
 	const [showSideCategories, setShowSideCategories] = useState(true);
+	const [cart, setCart] = useState([]);
 
 	/* Product data to give to `<YouMayLike/>`
 	to fetch products in same category */
@@ -90,6 +91,8 @@ function App() {
 							getStarSrc,
 							setShowSideCategories,
 							setYouMayLikeData,
+							setCart,
+							cart,
 						]}
 					/>
 				</main>
