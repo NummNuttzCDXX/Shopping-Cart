@@ -10,6 +10,7 @@ const Head = ({categories, cart}) => {
 	const [src, setSrc] = useState(shopCart);
 	const [cartLength, setCartLength] = useState(0);
 
+	// Get cart length
 	useEffect(() => {
 		let total = 0; // Reset total
 		// For each item in cart - Add the quantity
@@ -51,7 +52,11 @@ const Head = ({categories, cart}) => {
 						<Dropdown title='Categories'>
 							<ul>
 								{categories && categories.map((item) => (
-									<li key={item}> {item} </li>
+									<li key={item} >
+										<Link to={`/shop/category/${item.toLowerCase()}`}>
+											{item}
+										</Link>
+									</li>
 								))}
 							</ul>
 						</Dropdown>

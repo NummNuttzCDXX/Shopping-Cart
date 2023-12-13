@@ -36,6 +36,13 @@ const Router = () => {
 					loader: getAllProducts,
 				},
 				{
+					path: '/shop/category/:category',
+					element: <Shop />,
+					loader: async ({params}) => (
+						await fetch(`https://fakestoreapi.com/products/category/${params.category}`, {mode: 'cors', method: 'GET'})
+					),
+				},
+				{
 					path: '/shop/product/:prodId',
 					element: <Product />,
 					loader: async ({params}) => await fetch(`https://fakestoreapi.com/products/${params.prodId}`, {mode: 'cors', method: 'GET'}),

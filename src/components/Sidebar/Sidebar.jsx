@@ -1,5 +1,6 @@
 import propTypes from 'prop-types';
 import styles from './Sidebar.module.css';
+import {Link} from 'react-router-dom';
 
 // Sidebar Component will show categories and load them onClick
 const Sidebar = ({categories, children}) => {
@@ -10,7 +11,9 @@ const Sidebar = ({categories, children}) => {
 
 				<ul>
 					{categories.map((item) => (
-						<li key={item + ' b'} > {item} </li>
+						<Link to={`/shop/category/${item.toLowerCase()}`} key={item + ' b'}>
+							<li >{item}</li>
+						</Link>
 					))}
 				</ul>
 			</> }
@@ -24,7 +27,7 @@ const Sidebar = ({categories, children}) => {
 
 Sidebar.propTypes = {
 	categories: propTypes.arrayOf(propTypes.string),
-	children: propTypes.element,
+	children: propTypes.any,
 };
 
 export default Sidebar;
