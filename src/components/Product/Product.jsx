@@ -5,6 +5,7 @@ import star from '../../assets/img/star-filled.svg';
 import starHalf from '../../assets/img/star-half.svg';
 import AddToCartBtn from '../AddCartBtn/AddCartBtn';
 import {useEffect} from 'react';
+import Reviews from '../Reviews/Reviews';
 
 // Page for individual product
 const Product = () => {
@@ -58,6 +59,8 @@ const Product = () => {
 				</div>
 				<span> Total Rates: {data.rating.count} </span>
 			</div>
+
+			<Reviews avgRate={data.rating.rate} />
 		</div>
 	);
 };
