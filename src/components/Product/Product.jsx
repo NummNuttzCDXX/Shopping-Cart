@@ -46,7 +46,7 @@ const Product = () => {
 
 			<div>
 				{/* Star rating */}
-				<div>
+				<div className={styles.starContainer}>
 					{starSrc.map((src, i) => (
 						<img src={src} alt={src == star ? 'Filled Star' :
 							src == starHalf ? 'Half Star' : src == starEmpty ? 'Empty Star' :
@@ -54,6 +54,7 @@ const Product = () => {
 						key={i}
 						/>
 					))}
+					<span>{data.rating.rate}</span>
 				</div>
 				<span> Total Rates: {data.rating.count} </span>
 			</div>

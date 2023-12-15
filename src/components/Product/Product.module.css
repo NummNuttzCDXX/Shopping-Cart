@@ -1,10 +1,19 @@
 .productContainer {
 	height: 100%;
 	padding: 1rem 1.5rem 1rem;
+	/* Account for sidebar width -- To center the content */
+	margin-right: calc(20vw - 1.5rem);
+
+	background-color: var(--accent);
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.productContainer h2 {
+	width: 80%;
+	text-align: center;
 }
 
 .productContainer img {
@@ -22,5 +31,23 @@
 }
 
 .desc {
-	width: 60%;
+	width: 85%;
+	padding: .5rem 1rem;
+	background-color: var(--secondary);
+}
+
+.starContainer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+/* Star imgs */
+.starContainer img {
+	width: 2.3rem;
+}
+
+.starContainer span {
+	margin-left: .5rem;
+	font-size: 1.2rem;
 }
