@@ -5,6 +5,7 @@ import {useState} from 'react';
 import Product from './components/Product/Product';
 import ErrorPage from './components/Error/Error';
 import Checkout from './components/Checkout/Checkout';
+import Home from './components/Home/Home';
 
 const Router = () => {
 	const [productData, setProductData] = useState(null);
@@ -30,6 +31,10 @@ const Router = () => {
 			path: '/',
 			element: <App />,
 			children: [
+				{
+					index: true,
+					element: <Home getProducts={getAllProducts} />,
+				},
 				{
 					path: '/shop',
 					element: <Shop />,
