@@ -53,6 +53,10 @@
 	font-size: .9em;
 	overflow: hidden;
 }
+.desc.mobile {
+	/* Fixed 2 lines high */
+	height: calc(2.5ex * 2);
+}
 
 /* Description text content */
 .desc span {
@@ -104,5 +108,31 @@
 
 	.card img {
 		max-height: 150px;
+	}
+}
+
+/* Mobile and Smaller */
+@media screen and (width <= 500px) {
+	.shopContainer {
+		padding: 1rem 0;
+
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	}
+
+	.card {
+		grid-template-rows: 120px;
+		gap: .3rem;
+	}
+
+	.card img {
+		max-height: 120px;
+	}
+
+	.desc {
+		font-size: .8em;
+	}
+
+	.card .star {
+		width: 1.25rem;
 	}
 }

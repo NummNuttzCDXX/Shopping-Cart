@@ -53,3 +53,19 @@
 	margin-left: .5rem;
 	font-size: 1.2rem;
 }
+
+
+/* Mobile & Smaller */
+@media screen and (width <= 500px) {
+	.productContainer {
+		margin: 0;
+	}
+
+	.productContainer img {
+		max-height: 35vh;
+	}
+
+	.productContainer h2 {
+		font-size: 1.3rem;
+	}
+}

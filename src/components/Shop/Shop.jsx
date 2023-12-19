@@ -35,6 +35,12 @@ const Card = ({data, getStars}) => {
 	const descTxt = useRef(null);
 	const descContainer = useRef(null);
 	const [overflow, setOverflow] = useState(false);
+	const [isMobile, setIsMobile] = useState(false);
+
+	// Check if screen is mobile sized
+	useEffect(() => {
+		if (window.innerWidth <= 500) setIsMobile(true);
+	}, []);
 
 	// Check for Description Overflow
 	useEffect(() => {
@@ -56,13 +62,19 @@ const Card = ({data, getStars}) => {
 
 			{/* Title links to single product page */}
 			<Link to={`/shop/product/${data.id}`} >
-				<h3> {data.title.substr(0, 50)}{data.title.length > 50 && '...'} </h3>
+				<h3>
+					{!isMobile ? data.title.substr(0, 50) : data.title.substr(0, 30)}
+					{(!isMobile && data.title.length > 50) ||
+					(isMobile && data.title.length > 30) && '...'}
+				</h3>
 			</Link>
 
 			{/* Shortened description -- Also links back to single product page */}
 			<Link to={`/shop/product/${data.id}`}>
 				{/* Desc Parent Container */}
-				<p className={styles.desc} ref={descContainer} >
+				<p className={`${styles.desc} ${isMobile ? styles.mobile : ''}`}
+					ref={descContainer}
+				>
 					{/* Keep Desc txt in span to compare heights and check if overflow */}
 					<span ref={descTxt} > {data.description} </span>
 				</p>
