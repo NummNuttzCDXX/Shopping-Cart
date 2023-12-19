@@ -110,6 +110,7 @@ form .starContainer span {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	gap: .5rem;
 }
 
 .names label {
@@ -157,4 +158,12 @@ label[for=review]::after {
 
 form textarea {
 	width: 80%;
+}
+
+
+/* Tablet & Smaller */
+@media screen and (width <= 768px) {
+	.names input {
+		width: 20ex;
+	}
 }

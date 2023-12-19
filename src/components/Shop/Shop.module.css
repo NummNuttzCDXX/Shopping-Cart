@@ -94,3 +94,15 @@
 .totalRates {
 	font-size: .8em;
 }
+
+
+/* Tablet and smaller */
+@media screen and (width <= 768px) {
+	.card {
+		grid-template-rows: 150px;
+	}
+
+	.card img {
+		max-height: 150px;
+	}
+}

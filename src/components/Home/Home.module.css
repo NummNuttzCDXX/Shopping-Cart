@@ -44,8 +44,8 @@
 	border-radius: 1rem;
 
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	column-gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: .5rem;
 }
 
 /* Top Rated Heading */
@@ -121,6 +121,10 @@
 	border-radius: 1rem;
 }
 
+.sloganContainer p {
+	margin-top: 0;
+}
+
 .slogan {
 	padding: 1rem;
 
@@ -143,4 +147,13 @@
 
 .slogan span:nth-child(3) {
 	grid-column: 1 / -1;
+}
+
+
+/* Tablet and smalelr */
+@media screen and (width <= 768px) {
+	/* Heading container */
+	.head h1 {
+		font-size: 2.25rem;
+	}
 }

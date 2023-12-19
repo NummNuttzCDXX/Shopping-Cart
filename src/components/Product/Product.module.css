@@ -17,7 +17,9 @@
 }
 
 .productContainer img {
+	width: 80%;
 	max-height: 50vh;
+	object-fit: contain;
 }
 
 .priceContainer {

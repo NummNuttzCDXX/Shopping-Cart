@@ -38,9 +38,9 @@
 
 .card img {
 	width: 100%;
-	max-height: 200px;
+	height: 200px;
 	object-fit: contain;
-	background-color: white;
+	background-color: var(--main);
 }
 
 .card p {
@@ -95,7 +95,7 @@
 
 .arrowContainer {
 	border-radius: .5rem;
-	background-color: rgba(0, 0, 0, 0.555);
+	background-color: rgba(0, 0, 0, 0.355);
 	position: absolute;
 	bottom: 50%;
 
@@ -106,7 +106,7 @@
 	transition-duration: .3s;
 }
 
-.arrowContainer:hover {
+.slideshowWrapper:hover .arrowContainer {
 	background-color: rgba(0, 0, 0, 0.8);
 }
 
