@@ -18,6 +18,9 @@ function App() {
 	to fetch products in same category */
 	const [youMayLikeData, setYouMayLikeData] = useState(null);
 
+	const [headHeight, setHeadHeight] = useState(null);
+	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
 	// Get categories
 	useEffect(() => {
 		async function getCategories() {
@@ -76,11 +79,14 @@ function App() {
 
 	return (
 		<>
-			<Head categories={categories} cart={cart} />
+			<Head categories={categories} cart={cart} setHeight={setHeadHeight} />
 
 			<div className={styles.content} >
 				{ sidebar && categories && (
-					<Sidebar categories={showSideCategories ? categories : null} >
+					<Sidebar categories={showSideCategories ? categories : null}
+						headerHeight={headHeight}
+						isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen}
+					>
 						{!showSideCategories && <YouMayLike data={youMayLikeData} />}
 					</Sidebar>
 				)}
@@ -93,6 +99,7 @@ function App() {
 							setYouMayLikeData,
 							setCart,
 							cart,
+							setIsSidebarOpen,
 						]}
 					/>
 				</main>

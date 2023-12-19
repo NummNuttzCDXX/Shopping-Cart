@@ -16,6 +16,7 @@ const Product = () => {
 		setShowCategories,
 		setData,
 	] = useOutletContext();
+	const setSidebarOpen = useOutletContext()[6];
 
 	// Show Sidebar on mount / Hide on dismount
 	useEffect(() => {
@@ -27,6 +28,9 @@ const Product = () => {
 			setSidebar(false);
 		};
 	});
+
+	// (Mobile) close sidebar on mount
+	useEffect(() => setSidebarOpen(false), [setSidebarOpen]);
 
 	// Send the product data to `<YouMayLike/>` comp through state
 	useEffect(() => setData(data), [data, setData]);

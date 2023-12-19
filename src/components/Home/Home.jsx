@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom';
 const Home = ({getProducts}) => {
 	const [topRated, setTopRated] = useState([]);
 	const [setSidebar, getStars] = useOutletContext();
+	const setSidebarOpen = useOutletContext()[6];
 
 	// Get top 5 rated products
 	useEffect(() => {
@@ -31,6 +32,9 @@ const Home = ({getProducts}) => {
 
 		return () => setSidebar(false);
 	});
+
+	// (Mobile) Close sidebar on mount
+	useEffect(() => setSidebarOpen(false), [setSidebarOpen]);
 
 	return (
 		<div className={styles.home} >

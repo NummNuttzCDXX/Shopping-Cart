@@ -7,6 +7,7 @@ import AddToCartBtn from '../AddCartBtn/AddCartBtn';
 const Shop = () => {
 	const shopData = useLoaderData();
 	const [setSidebar, getStarSrc] = useOutletContext();
+	const setSidebarOpen = useOutletContext()[6];
 
 	// Show sidebar on mount
 	useEffect(() => {
@@ -15,6 +16,9 @@ const Shop = () => {
 		// Hide sidebar on dismount
 		return () => setSidebar(false);
 	});
+
+	// (Mobile) Close sidebar on mount
+	useEffect(() => setSidebarOpen(false), [setSidebarOpen]);
 
 	return (
 		<div className={styles.shopContainer} >

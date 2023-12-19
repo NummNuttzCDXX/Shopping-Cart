@@ -127,3 +127,30 @@ nav {
 		width: 2.5rem;
 	}
 }
+
+/* Mobile & Smaller */
+@media screen and (width <= 500px) {
+	.head {
+		/* Add second row */
+		grid-template-rows: 1fr auto;
+		row-gap: .5rem;
+	}
+
+	.head h1 {
+		/* Place heading in center / Top row */
+		grid-column: 2 / 3;
+		justify-self: center;
+	}
+
+	.head input[type=search] {
+		/* Place searchbar below heading */
+		grid-column: 2 / 3;
+		grid-row: 2 / 3;
+	}
+
+	.checkoutContainer {
+		/* Keep the same */
+		grid-column: 3 / 4;
+		grid-row: 1 / 2;
+	}
+}

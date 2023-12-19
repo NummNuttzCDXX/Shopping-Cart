@@ -4,9 +4,9 @@ import shopCart from '../../assets/img/shopping-cart.svg';
 import shopCartCheckout from '../../assets/img/shopping-cart-checkout.svg';
 import styles from './Head.module.css';
 import {Link} from 'react-router-dom';
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 
-const Head = ({categories, cart}) => {
+const Head = ({categories, cart, setHeight}) => {
 	const [src, setSrc] = useState(shopCart);
 	const [cartLength, setCartLength] = useState(0);
 
@@ -20,8 +20,14 @@ const Head = ({categories, cart}) => {
 		setCartLength(total);
 	}, [cart]);
 
+	// Set/Send the height to sidebar
+	const headerRef = useRef(null);
+	useEffect(() => {
+		if (headerRef.current) setHeight(headerRef.current.clientHeight);
+	});
+
 	return (
-		<header>
+		<header ref={headerRef}>
 			<div className={styles.head}>
 				<h1>Loremazon</h1>
 				<input type="search" placeholder='Search' />
@@ -70,6 +76,7 @@ const Head = ({categories, cart}) => {
 Head.propTypes = {
 	categories: propTypes.arrayOf(propTypes.string),
 	cart: propTypes.arrayOf(propTypes.object),
+	setHeight: propTypes.func,
 };
 
 export default Head;
