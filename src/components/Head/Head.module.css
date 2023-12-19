@@ -56,14 +56,6 @@ header {
 	cursor: pointer;
 }
 
-.head input[type='search'] {
-	width: 100%;
-	border-radius: .5rem;
-	text-align: center;
-
-	font-size: .8rem;
-}
-
 nav {
 	padding: .5rem;
 }
@@ -108,6 +100,79 @@ nav {
 }
 
 
+/* Search Bar */
+.searchContainer {
+	width: 100%;
+
+	position: relative;
+	z-index: 3;
+}
+
+.head input[type='search'] {
+	width: 100%;
+	border-radius: .5rem;
+	text-align: center;
+
+	font-size: .8rem;
+}
+
+.searchIconContainer {
+	position: absolute;
+	top: 4px;
+	right: .25em;
+}
+
+.searchIconContainer img {
+	width: auto;
+	height: 1.2rem;
+	cursor: auto;
+}
+
+/* ul for results */
+.searchResults {
+	margin: 0;
+	padding: .5rem 0;
+	height: 50vh;
+	list-style-type: none;
+	overflow-y: scroll;
+
+	background-color: var(--main);
+	border-radius: .5rem;
+
+	display: flex;
+	flex-direction: column;
+	gap: .25rem;
+
+	/* Pos relative to .searchContainer */
+	position: absolute;
+	top: 100%;
+}
+
+.searchResults li {
+	padding: .25rem 1rem;
+	font-size: .9rem;
+}
+.searchResults li:hover {
+	background-color: var(--accent);
+
+	cursor: pointer;
+}
+
+/* Link */
+.searchResults li a {
+	width: 100%;
+	color: inherit;
+
+	display: inline-block;
+}
+
+/* Result divider (hr) */
+.searchResults hr {
+	margin: 0;
+	border: 1px solid var(--accent);
+}
+
+
 /* Tablet & smaller */
 @media screen and (width <= 768px) {
 	header {
@@ -142,7 +207,7 @@ nav {
 		justify-self: center;
 	}
 
-	.head input[type=search] {
+	.searchContainer {
 		/* Place searchbar below heading */
 		grid-column: 2 / 3;
 		grid-row: 2 / 3;

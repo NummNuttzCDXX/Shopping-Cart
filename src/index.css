@@ -47,3 +47,21 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+
+/* Hide cancel search button
+(Chrome, IE) */
+#search-clear,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  appearance: none;
+  display: none;
+}
+input[type='search']::-ms-clear,
+input[type='search']::-ms-reveal {
+  appearance: none;
+  display: none;
+  width: 0;
+  height: 0;
+}

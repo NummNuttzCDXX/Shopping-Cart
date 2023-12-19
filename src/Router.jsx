@@ -30,6 +30,7 @@ const Router = () => {
 		{
 			path: '/',
 			element: <App />,
+			loader: getAllProducts,
 			children: [
 				{
 					index: true,

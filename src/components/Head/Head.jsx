@@ -2,8 +2,9 @@ import propTypes from 'prop-types';
 import Dropdown from '../Dropdown/Dropdown';
 import shopCart from '../../assets/img/shopping-cart.svg';
 import shopCartCheckout from '../../assets/img/shopping-cart-checkout.svg';
+import searchIcon from '../../assets/img/search.svg';
 import styles from './Head.module.css';
-import {Link} from 'react-router-dom';
+import {Link, useLoaderData} from 'react-router-dom';
 import {useEffect, useRef, useState} from 'react';
 
 const Head = ({categories, cart, setHeight}) => {
@@ -30,7 +31,7 @@ const Head = ({categories, cart, setHeight}) => {
 		<header ref={headerRef}>
 			<div className={styles.head}>
 				<h1>Loremazon</h1>
-				<input type="search" placeholder='Search' />
+				<SearchBar />
 
 				{/* Change image src on container hover */}
 				<div className={styles.checkoutContainer}
@@ -77,6 +78,55 @@ Head.propTypes = {
 	categories: propTypes.arrayOf(propTypes.string),
 	cart: propTypes.arrayOf(propTypes.object),
 	setHeight: propTypes.func,
+};
+
+const SearchBar = () => {
+	const [search, setSearch] = useState('');
+	const [results, setResults] = useState([]);
+	const products = useLoaderData();
+
+	// Search Bar
+	useEffect(() => {
+		// Reset results when bar is empty
+		if (search.length == 0) setResults([]);
+		else {
+			// Filter `products` to find items where the title
+			// includes the search query
+			setResults(products.filter((v) => (
+				v.title.toLowerCase().includes(search) ||
+				v.category.toLowerCase().match(search)
+			)));
+		}
+	}, [search, products]);
+
+	return (
+		<div className={styles.searchContainer} >
+			<input type="search" placeholder='Search'
+				value={search} onChange={(e) => setSearch(e.target.value)}
+			/>
+			<div className={styles.searchIconContainer}>
+				<img src={searchIcon} alt='Search'/>
+			</div>
+
+			{ results.length > 0 &&
+				<ul className={styles.searchResults}>
+					{ results.map((item, i) => {
+						let last = false;
+						if (i + 1 == results.length) last = true;
+
+						return (
+							<>
+								<li key={'result ' + item.id} onClick={() => setSearch('')} >
+									<Link to={'/shop/product/' + item.id} >{item.title}</Link>
+								</li>
+								{!last && <hr />}
+							</>
+						);
+					})}
+				</ul>
+			}
+		</div>
+	);
 };
 
 export default Head;
