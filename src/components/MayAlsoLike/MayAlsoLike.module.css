@@ -129,3 +129,16 @@
 .right {
 	right: 0;
 }
+
+
+/* Bigger Screens */
+@media screen and (width >= 1800px) {
+	.card p {
+		position: relative;
+		bottom: 1rem;
+	}
+
+	.card img {
+		height: 300px;
+	}
+}

@@ -132,3 +132,10 @@
 		width: 100%;
 	}
 }
+
+/* Bigger Screens */
+@media screen and (width >= 1800px) {
+	.item img {
+		width: 200px;
+	}
+}

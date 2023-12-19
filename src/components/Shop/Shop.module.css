@@ -136,3 +136,10 @@
 		width: 1.25rem;
 	}
 }
+
+/* Bigger Screens */
+@media screen and (width >= 1800px) {
+	.shopContainer {
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	}
+}

@@ -157,3 +157,14 @@
 		font-size: 2.25rem;
 	}
 }
+
+/* Bigger Screens */
+@media screen and (width >= 1800px) {
+	.topRatedContainer {
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	}
+
+	.itemImg {
+		height: 250px;
+	}
+}

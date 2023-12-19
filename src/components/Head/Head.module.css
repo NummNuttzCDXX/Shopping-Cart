@@ -154,3 +154,10 @@ nav {
 		grid-row: 1 / 2;
 	}
 }
+
+/* Bigger Screens */
+@media screen and (width >= 1800px) {
+	.head img {
+		width: 2.5rem;
+	}
+}
