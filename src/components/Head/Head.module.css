@@ -73,6 +73,14 @@ nav {
 	font-weight: 500;
 }
 
+.linkContainer > li {
+	padding: .25rem;
+	border-radius: .5rem;
+}
+.linkContainer > li:hover {
+	background-color: rgb(71, 161, 190);
+}
+
 .linkContainer a {
 	color: inherit;
 }
